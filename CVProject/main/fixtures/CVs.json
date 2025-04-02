@@ -1,0 +1,145 @@
+[
+  {
+    "model": "main.CV",
+    "pk": 1,
+    "fields": {
+      "id": 1,
+      "firstname": "John",
+      "lastname": "Doe",
+      "skills": "Python, Django, PostgreSQL, React, AWS",
+      "projects": "Project 1: CRM system for small businesses; Project 2: Task management system",
+      "bio": "Experienced Fullstack developer with strong skills in Python and JavaScript.",
+      "contacts": "email: john.doe@example.com, phone: +1234567890"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 2,
+    "fields": {
+      "id": 2,
+      "firstname": "Jane",
+      "lastname": "Smith",
+      "skills": "Java, Spring Boot, MySQL, Docker, Kubernetes",
+      "projects": "Project 1: Online store; Project 2: HR system",
+      "bio": "Backend developer with experience in building scalable web applications.",
+      "contacts": "email: jane.smith@example.com, phone: +0987654321"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 3,
+    "fields": {
+      "id": 3,
+      "firstname": "Michael",
+      "lastname": "Brown",
+      "skills": "C++, Unreal Engine, Game Development",
+      "projects": "Project 1: 3D FPS Game; Project 2: AI-powered NPCs",
+      "bio": "Game developer with a passion for AI and physics simulations.",
+      "contacts": "email: michael.brown@example.com, phone: +1122334455"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 4,
+    "fields": {
+      "id": 4,
+      "firstname": "Emily",
+      "lastname": "Johnson",
+      "skills": "HTML, CSS, JavaScript, UI/UX Design",
+      "projects": "Project 1: Portfolio Website; Project 2: E-commerce UI redesign",
+      "bio": "Frontend developer and designer focused on user experience and accessibility.",
+      "contacts": "email: emily.johnson@example.com, phone: +2233445566"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 5,
+    "fields": {
+      "id": 5,
+      "firstname": "Daniel",
+      "lastname": "Williams",
+      "skills": "Rust, Blockchain, Smart Contracts",
+      "projects": "Project 1: Decentralized Exchange; Project 2: NFT Marketplace",
+      "bio": "Blockchain developer with expertise in secure and scalable smart contracts.",
+      "contacts": "email: daniel.williams@example.com, phone: +3344556677"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 6,
+    "fields": {
+      "id": 6,
+      "firstname": "Sophia",
+      "lastname": "Martinez",
+      "skills": "Go, Kubernetes, Cloud Infrastructure",
+      "projects": "Project 1: Cloud-native CI/CD pipeline; Project 2: Scalable microservices",
+      "bio": "Cloud engineer specialized in container orchestration and high availability.",
+      "contacts": "email: sophia.martinez@example.com, phone: +4455667788"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 7,
+    "fields": {
+      "id": 7,
+      "firstname": "David",
+      "lastname": "Anderson",
+      "skills": "Swift, iOS Development, ARKit",
+      "projects": "Project 1: Augmented Reality App; Project 2: Productivity Tool for iOS",
+      "bio": "Mobile developer with experience in AR and app optimization.",
+      "contacts": "email: david.anderson@example.com, phone: +5566778899"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 8,
+    "fields": {
+      "id": 8,
+      "firstname": "Olivia",
+      "lastname": "Taylor",
+      "skills": "R, Data Science, Machine Learning",
+      "projects": "Project 1: Predictive Analytics Tool; Project 2: AI-based Recommendation System",
+      "bio": "Data scientist with expertise in statistical modeling and AI algorithms.",
+      "contacts": "email: olivia.taylor@example.com, phone: +6677889900"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 9,
+    "fields": {
+      "id": 9,
+      "firstname": "James",
+      "lastname": "Harris",
+      "skills": "PHP, Laravel, MySQL, Web Security",
+      "projects": "Project 1: Secure Payment Gateway; Project 2: Social Media Platform",
+      "bio": "Fullstack developer with a focus on security and performance optimization.",
+      "contacts": "email: james.harris@example.com, phone: +7788990011"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 10,
+    "fields": {
+      "id": 10,
+      "firstname": "Charlotte",
+      "lastname": "White",
+      "skills": "Scala, Apache Spark, Big Data",
+      "projects": "Project 1: Real-time Data Pipeline; Project 2: AI-powered Analytics Dashboard",
+      "bio": "Big data engineer with expertise in distributed computing and real-time analytics.",
+      "contacts": "email: charlotte.white@example.com, phone: +8899001122"
+    }
+  },
+  {
+    "model": "main.CV",
+    "pk": 11,
+    "fields": {
+      "id": 11,
+      "firstname": "William",
+      "lastname": "Moore",
+      "skills": "Perl, Shell Scripting, DevOps",
+      "projects": "Project 1: Automated Deployment System; Project 2: System Monitoring Dashboard",
+      "bio": "DevOps engineer specializing in automation, CI/CD, and cloud infrastructure.",
+      "contacts": "email: william.moore@example.com, phone: +9900112233"
+    }
+  }
+]

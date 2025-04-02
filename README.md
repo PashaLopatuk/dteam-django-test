@@ -22,3 +22,9 @@ python manage.py loaddata CVs
 ```sh
 python manage.py test main
 ```
+
+### Run Test for CVs API
+
+```sh
+python manage.py test api
+```

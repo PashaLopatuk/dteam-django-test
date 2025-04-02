@@ -14,16 +14,19 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from api.cv.views import CVListCreateView, CVDetailView
 from django.contrib import admin
 from django.urls import path
 
 from main.views import CVListApiView, CVInfoApiView, CVInfoPdfApiView
 
 
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', CVListApiView.as_view(), name="cv_list"),
-    path('cv/<int:cv_id>', CVInfoApiView.as_view(), name="cv_info"),
-    path('cv/<int:cv_id>/pdf', CVInfoPdfApiView.as_view(), name="cv_info/pdf")
+    path("admin/", admin.site.urls),
+    path("", CVListApiView.as_view(), name="cv_list"),
+    path("cv/<int:cv_id>", CVInfoApiView.as_view(), name="cv_info"),
+    path("cv/<int:cv_id>/pdf", CVInfoPdfApiView.as_view(), name="cv_info/pdf"),
+    path("api/cv", CVListCreateView.as_view(), name="api/cv_list"),
+    path("api/cv/<int:pk>", CVDetailView.as_view(), name="api/cv_detail"),
 ]

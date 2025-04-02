@@ -5,13 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Resume</title>
         <style>
-            :root {
-                --accent: #007bff;
-                --bg: #f4f4f9;
-            }
             body {
                 font-family: Arial, sans-serif;
-                background-color: var(--bg);
+                background-color: #f4f4f9;
                 margin: 0;
                 padding: 20px;
                 display: flex;
@@ -29,19 +25,11 @@
             h2 {
                 color: #333;
             }
-            button {
-                background: var(--accent);
-                border-radius: 20px;
-                padding: 1rem;
-                border: none;
-                color: white;
-            }
-
             .section {
                 margin-bottom: 15px;
             }
             .section h2 {
-                border-bottom: 2px solid var(--accent);
+                border-bottom: 2px solid #007bff;
                 padding-bottom: 5px;
                 margin-bottom: 10px;
             }
@@ -49,25 +37,12 @@
                 font-size: 1.1em;
                 color: #555;
             }
-
-            .resume-title {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
         </style>
     </head>
     <body>
         <div class="cv-container">
-            <div class="resume-title">
-                <h1 id="fullname">
-                    {{cv_data.firstname}} {{cv_data.lastname}}
-                </h1>
+            <h1 id="fullname">{{cv_data.firstname}} {{cv_data.lastname}}</h1>
 
-                <a href="/cv/{{ cv_data.id }}/pdf" class="" target="_blank">
-                    <button class="">Download PDF</button>
-                </a>
-            </div>
             <div class="section">
                 <h2>Skills</h2>
                 <p class="info" id="skills">{{cv_data.skills}}</p>

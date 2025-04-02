@@ -17,12 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from main.views import CVListApiView, CVInfoApiView
+from main.views import CVListApiView, CVInfoApiView, CVInfoPdfApiView
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', CVListApiView.as_view(), name="cv_list"),
-    path('cv/<int:cv_id>', CVInfoApiView.as_view(), name="cv_info")
+    path('cv/<int:cv_id>', CVInfoApiView.as_view(), name="cv_info"),
+    path('cv/<int:cv_id>/pdf', CVInfoPdfApiView.as_view(), name="cv_info/pdf")
 ]

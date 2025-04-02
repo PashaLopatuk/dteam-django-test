@@ -4,6 +4,8 @@ from django.http.request import HttpRequest
 from django.shortcuts import render
 from django.views import View
 
+from main.repositories.cv import CvRepository
+from utils.pdf import DjangoPdfResolver
 from main.models import CV
 
 class CVListApiView(View):
@@ -28,14 +30,11 @@ class CVListApiView(View):
 
 
 class CVInfoApiView(View):
-    async def fetch_cv_by_id(self, id: int) -> CV:
-        cv = await sync_to_async(
-            lambda : CV.objects.get(id=id)
-        )()
-        return cv
+    def __init__(self):
+        self._cv_repo = CvRepository()
     
     async def get(self, request: HttpRequest, cv_id: int):
-        cv_data = await self.fetch_cv_by_id(id=cv_id)
+        cv_data = await self._cv_repo.fetch_cv_by_id(id=cv_id)
     
         template_data = {
             "cv_data": cv_data
@@ -46,3 +45,26 @@ class CVInfoApiView(View):
             template_name='cv_info.html', 
             context=template_data
         )
+
+class CVInfoPdfApiView(View):
+    def __init__(self):
+        self._cv_repo = CvRepository()
+        self._pdf_resolver = DjangoPdfResolver()
+    
+    async def get(self, request: HttpRequest, cv_id: int):
+        cv_data = await self._cv_repo.fetch_cv_by_id(id=cv_id)
+
+        pdf_file = await self._pdf_resolver.render_pdf(
+            request=request,
+            template_path='cv_info_pdf.html',
+            template_context={
+                "cv_data": cv_data
+            },
+        )
+
+        response = self._pdf_resolver.create_pdf_file_response(
+            file=pdf_file,
+            filename=str(cv_data)
+        )
+
+        return response

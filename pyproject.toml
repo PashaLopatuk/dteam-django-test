@@ -2,14 +2,10 @@
 name = "test"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Pavlo Lopatiuk",email = "pashalopatuk@gmail.com"}
-]
+authors = [{ name = "Pavlo Lopatiuk", email = "pashalopatuk@gmail.com" }]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "django (>=5.1.7,<6.0.0)"
-]
+requires-python = ">=3.13,<4"                                             # changed to <4 because of package xhtml2pdf
+dependencies = ["django (>=5.1.7,<6.0.0)", "xhtml2pdf (>=0.2.17,<0.3.0)"]
 
 
 [build-system]

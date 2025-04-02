@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Список Резюме</title>
+        <title>Resume list</title>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -55,14 +55,14 @@
     </head>
     <body>
         <div class="cv-list-container">
-            <h1>Список Резюме</h1>
+            <h1>Resume list</h1>
             {% for cv in cv_list %}
             <li>
                 <a href="/cv/{{ cv.id }}">
                     <div class="cv-item">
                         <h2>{{cv.firstname}} {{cv.lastname}}</h2>
-                        <p><strong>Навички:</strong> {{cv.skills}}</p>
-                        <p><strong>Контакти:</strong> {{cv.contacts}}</p>
+                        <p><strong>Skills:</strong> {{cv.skills}}</p>
+                        <p><strong>Contacts:</strong> {{cv.contacts}}</p>
                     </div>
                 </a>
             </li>

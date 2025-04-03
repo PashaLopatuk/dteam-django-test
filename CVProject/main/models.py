@@ -12,3 +12,16 @@ class CV(models.Model):
 
     def __str__(self):
         return f"{self.firstname} {self.lastname}"
+
+
+class RequestLog(models.Model):
+    class Meta:
+        db_table = 'requests_logs'
+
+    id = models.AutoField(primary_key=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    http_method = models.CharField(max_length=255)
+    path = models.TextField()
+    query = models.TextField()
+    ip_address = models.CharField(max_length=255)
+    status = models.IntegerField()

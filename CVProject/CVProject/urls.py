@@ -1,3 +1,4 @@
+
 """
 URL configuration for CVProject project.
 
@@ -19,14 +20,18 @@ from api.cv.views import CVListCreateView, CVDetailView
 from django.contrib import admin
 from django.urls import path
 
-from main.views import CVListApiView, CVInfoApiView, CVInfoPdfApiView
+from main.views import CVListView, CVInfoView, CVInfoPdfView, RequestLogListView
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", CVListApiView.as_view(), name="cv_list"),
-    path("cv/<int:cv_id>", CVInfoApiView.as_view(), name="cv_info"),
-    path("cv/<int:cv_id>/pdf", CVInfoPdfApiView.as_view(), name="cv_info/pdf"),
+    
+    path("", CVListView.as_view(), name="cv_list"),
+    path("cv/<int:cv_id>", CVInfoView.as_view(), name="cv_info"),
+    path("cv/<int:cv_id>/pdf", CVInfoPdfView.as_view(), name="cv_info/pdf"),
+    
+    path("logs", RequestLogListView.as_view(), name="logs_list"),
+    
     path("api/cv", CVListCreateView.as_view(), name="api/cv_list"),
     path("api/cv/<int:pk>", CVDetailView.as_view(), name="api/cv_detail"),
 ]

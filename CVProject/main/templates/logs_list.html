@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="uk">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Request Logs</title>
+        <style>
+            :root {
+                --accent: #007bff;
+                --bg: #f4f4f9;
+                --text: #333;
+                --table-header: #0056b3;
+                --table-header-text: #ffffff;
+                --table-row-even: #f9f9f9;
+                --table-row-hover: #dbeafe;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: var(--bg);
+                margin: 0;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+            }
+            .list-container {
+                background: white;
+                padding: 20px;
+                max-width: 800px;
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                color: var(--text);
+                text-align: center;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th,
+            td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+            th {
+                background-color: var(--table-header);
+                color: var(--table-header-text);
+                text-transform: uppercase;
+            }
+            tr:nth-child(even) {
+                background-color: var(--table-row-even);
+            }
+            tr:hover {
+                background-color: var(--table-row-hover);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="list-container">
+            <h1>Log journal</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Datetime</th>
+                        <th>Method</th>
+                        <th>Path</th>
+                        <th>Query</th>
+                        <th>IP Address</th>
+                        <th>Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log_data in logs_data %}
+                    <tr>
+                        <td>{{ log_data.id }}</td>
+                        <td>{{ log_data.created_at }}</td>
+                        <td>{{ log_data.http_method }}</td>
+                        <td>{{ log_data.path }}</td>
+                        <td>{{ log_data.query }}</td>
+                        <td>{{ log_data.ip_address }}</td>
+                        <td>{{ log_data.status }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

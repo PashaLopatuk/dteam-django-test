@@ -1,5 +1,7 @@
 from django.test import TestCase
 
+from main.models import RequestLog
+
 # Create your tests here.
 
 
@@ -21,3 +23,16 @@ class TestCVView(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertIn(cv_expected_content["firstname"], response.content.decode())
+
+
+class TestRequestLoging(TestCase):
+    def test_request_logs_in_db(self):
+        logs = RequestLog.objects.all()
+        
+        self.assertEqual(len(logs), 0)
+        
+        self.client.get('/')
+        
+        log: RequestLog = RequestLog.objects.get()
+        
+        self.assertEqual(log.http_method, "GET")

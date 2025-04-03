@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        :root {
+            --accent: #007bff;
+            --bg: #f4f4f9;
+            --text: #333;
+            --table-header: #0056b3;
+            --table-header-text: #ffffff;
+            --table-row-even: #f9f9f9;
+            --table-row-hover: #dbeafe;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <body>
+        <main class="container">
+            <h1>Django Settings</h1>
+            <p>DEBUG: {{ DEBUG }}</p>
+            <p>ALLOWED_HOSTS: {{ ALLOWED_HOSTS }}</p>
+            <p>DATABASES: {{ DATABASES }}</p>
+        </main>
+    </body>
+</html>

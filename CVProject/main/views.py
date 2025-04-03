@@ -3,6 +3,7 @@ from django.core.handlers.base import sync_to_async
 from django.http.request import HttpRequest
 from django.shortcuts import render
 from django.views import View
+from reportlab.lib.pagesizes import C0
 
 from main.repositories.cv import CvRepository
 from main.repositories.request_log import RequestLogRepository
@@ -72,3 +73,8 @@ class RequestLogListView(View):
                 "logs_data": logs
             }
         )
+
+
+class SettingsPageView(View):
+    async def get(self, request: HttpRequest):
+        return render(request=request, template_name='settings.html')

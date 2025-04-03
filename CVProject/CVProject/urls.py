@@ -20,17 +20,18 @@ from api.cv.views import CVListCreateView, CVDetailView
 from django.contrib import admin
 from django.urls import path
 
-from main.views import CVListView, CVInfoView, CVInfoPdfView, RequestLogListView
+from main.views import CVListView, CVInfoView, CVInfoPdfView, RequestLogListView, SettingsPageView
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("settings/", SettingsPageView.as_view(), name="settings_page"),
     
     path("", CVListView.as_view(), name="cv_list"),
     path("cv/<int:cv_id>", CVInfoView.as_view(), name="cv_info"),
     path("cv/<int:cv_id>/pdf", CVInfoPdfView.as_view(), name="cv_info/pdf"),
     
-    path("logs", RequestLogListView.as_view(), name="logs_list"),
+    path("logs/", RequestLogListView.as_view(), name="logs_list"),
     
     path("api/cv", CVListCreateView.as_view(), name="api/cv_list"),
     path("api/cv/<int:pk>", CVDetailView.as_view(), name="api/cv_detail"),

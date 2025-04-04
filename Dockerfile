@@ -19,12 +19,18 @@ ENV POETRY_NO_INTERACTION=1 \
 
 COPY . /app
 
+RUN chmod +x deploy/worker-entry.sh
+
 RUN apt update
 RUN apt install libpq-dev postgresql postgresql-contrib -y
 
-RUN pip install poetry
+RUN pip install poetr
 
 RUN poetry install --no-root
 
 EXPOSE 8000
+
+
+RUN cd CVProject
+
 CMD poetry run python CVProject/manage.py runserver 0.0.0.0:8000

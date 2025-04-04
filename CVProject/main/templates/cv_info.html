@@ -55,6 +55,12 @@
                 justify-content: space-between;
                 align-items: center;
             }
+
+            input {
+                padding: 10px;
+                border-radius: 20px;
+                padding: 1rem;
+            }
         </style>
     </head>
     <body>
@@ -87,6 +93,46 @@
                 <h2>Contacts</h2>
                 <p class="info" id="contacts">{{cv_data.contacts}}</p>
             </div>
+
+            <div class="section">
+                <!-- <form id="sendPdfForm"> -->
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                    id="email-send-input"
+                />
+                <button onclick="handleSend" type="submit" id="send-button">
+                    Send PDF to Email
+                </button>
+                <!-- </form> -->
+            </div>
         </main>
     </body>
+    <script>
+        const csrftoken = "{{ csrf_token }}";
+        const handleSend = async () => {
+            console.log(123);
+            const inputElement = document.getElementById("email-send-input");
+
+            const emailValue = inputElement.value;
+
+            const response = await fetch("{% url 'cv_info/send_to_email' %}", {
+                method: "POST",
+                body: JSON.stringify({
+                    email: emailValue,
+                    cv_id: "{{cv_data.id}}",
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRFToken": csrftoken,
+                },
+            });
+            const result = await response.json();
+            alert(result.message);
+        };
+
+        document.getElementById("send-button").onclick = handleSend;
+    </script>
 </html>

@@ -20,7 +20,7 @@ from api.cv.views import CVListCreateView, CVDetailView
 from django.contrib import admin
 from django.urls import path
 
-from main.views import CVListView, CVInfoView, CVInfoPdfView, RequestLogListView, SettingsPageView
+from main.views import CVListView, CVInfoView, CVInfoPdfView, RequestLogListView, SendPdfToEmailView, SettingsPageView
 
 
 urlpatterns = [
@@ -30,6 +30,7 @@ urlpatterns = [
     path("", CVListView.as_view(), name="cv_list"),
     path("cv/<int:cv_id>", CVInfoView.as_view(), name="cv_info"),
     path("cv/<int:cv_id>/pdf", CVInfoPdfView.as_view(), name="cv_info/pdf"),
+    path("cv_send_pdf_email", SendPdfToEmailView.as_view(), name="cv_info/send_to_email"),
     
     path("logs/", RequestLogListView.as_view(), name="logs_list"),
     

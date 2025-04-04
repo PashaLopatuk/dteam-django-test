@@ -13,7 +13,6 @@ from xhtml2pdf import pisa
 class DjangoPdfResolver:
     async def render_pdf(
         self,
-        request: HttpRequest,
         template_path: str,
         template_context: dict[str, Any],
     ) -> BytesIO:

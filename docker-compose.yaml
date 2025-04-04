@@ -21,3 +21,14 @@ services:
     restart: unless-stopped
     depends_on:
       - cv_app_postgres
+
+  celery-app:
+    build: .
+    entrypoint: /app/deploy/worker-entry.sh
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:${REDIS_PORT}"

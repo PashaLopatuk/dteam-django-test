@@ -1,0 +1,23 @@
+services:
+  cv_app_postgres:
+    image: postgres:alpine
+    container_name: cv_app_postgres
+    restart: always
+    ports:
+      - "5432:${POSTGRES_PORT}"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - /Users/mac/docker/volumes/postgres-db
+
+  django_cv_app:
+    container_name: django_cv_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:${DJANGO_APP_PORT}"
+    restart: unless-stopped
+    depends_on:
+      - cv_app_postgres

@@ -11,7 +11,7 @@ services:
     volumes:
       - /Users/mac/docker/volumes/postgres-db
 
-  django_cv_app:
+  build_cv_app:
     container_name: django_cv_app
     build:
       context: .
@@ -20,11 +20,27 @@ services:
       - "8000:${DJANGO_APP_PORT}"
     restart: unless-stopped
     depends_on:
+      - db_migration
+
+  db_migration:
+    entrypoint: ./deploy/migrate_db.sh
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
       - cv_app_postgres
+
+  start-web-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: poetry run python CVProject/manage.py runserver 0.0.0.0:${DJANGO_APP_PORT}
+    depends_on:
+      - build_cv_app
 
   celery-app:
     build: .
-    entrypoint: /app/deploy/worker-entry.sh
+    entrypoint: /app/deploy/worker_entry.sh
     depends_on:
       - redis
 

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'django.contrib.sites',
     "django.contrib.postgres",
-    'django_celery_results.models.TaskResult',
+    'django_celery_results',
     "main",
 ]
 

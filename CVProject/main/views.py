@@ -12,6 +12,7 @@ from main.models import CV
 from main.repositories.cv import CvRepository
 from main.repositories.request_log import RequestLogRepository
 from utils.pdf import DjangoPdfResolver
+from utils.temporary_files import create_temp_bin_file
 
 
 class CVListView(View):
@@ -102,6 +103,9 @@ class SendPdfToEmailView(View):
         cv_id = int(request_body.get('cv_id'))
         cv_data = await self._cv_repo.get_cv_by_id(id=cv_id)
         pdf_file = await self.info_pdf_view.render_pdf_cv(cv_data=cv_data)
+        print(f'{email=}')
+        print(123)
+        file_id = create_temp_bin_file(file_io=pdf_file)
         
-        send_pdf_to_email.delay(email=email, pdf_file=pdf_file)
+        send_pdf_to_email.delay(email=email, pdf_file_id=file_id)
         return JsonResponse({"message": "Email sent!"})

@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-^qg-i#)_!75&+r26#pvuzqb(uuzpfth6#3+z1lvq_q0##nxh%d
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "*"
+    "*",  "64.226.73.45"
 ]
 CSRF_TRUSTED_ORIGINS = [
     "https://dteam-django-test.onrender.com"

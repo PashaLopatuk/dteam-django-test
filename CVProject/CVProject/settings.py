@@ -30,7 +30,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "dteam-django-test.onrender.com"
 ]
-
+CSRF_TRUSTED_ORIGINS = [
+    "dteam-django-test.onrender.com"
+]
 
 # Application definition
 

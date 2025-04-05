@@ -31,3 +31,10 @@ class CeleryConfigCls(BaseSettings):
     author_email: Annotated[str, Field(serialization_alias='AUTHOR_EMAIL')]
 
 CeleryConfig = CeleryConfigCls()
+
+
+class SMTPConfigCls(BaseSettings):
+    host: Annotated[str, Field(serialization_alias="SMTP_HOST")]
+    port: Annotated[str, Field(serialization_alias="SMTP_PORT")]
+
+CMTPConfig = SMTPConfigCls()

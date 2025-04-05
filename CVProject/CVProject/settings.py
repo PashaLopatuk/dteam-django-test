@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
-from utils.config import DbConfig, RedisConfig, generate_redis_connection_url
+from utils.config import CMTPConfig, DbConfig, RedisConfig, generate_redis_connection_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -142,7 +142,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-
+EMAIL_HOST = CMTPConfig.host
+EMAIL_PORT = CMTPConfig.port
+EMAIL_USE_TLS = False
 
 CELERY_BROKER_URL = generate_redis_connection_url()
 CELERY_ACCEPT_CONTENT = ['json']

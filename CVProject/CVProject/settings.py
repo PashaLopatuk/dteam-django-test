@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-^qg-i#)_!75&+r26#pvuzqb(uuzpfth6#3+z1lvq_q0##nxh%d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['64.226.73.45', 'dteam-django-test.onrender.com']
 CSRF_TRUSTED_ORIGINS = [
     "https://dteam-django-test.onrender.com", "https://64.226.73.45"
 ]

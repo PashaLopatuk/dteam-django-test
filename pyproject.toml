@@ -24,7 +24,7 @@ version = "0.1.1"
 description = ""
 authors = ["Pavlo Lopatiuk <pashalopatuk@gmail.com>"]
 readme = "README.md"
-
+package-mode = false
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

@@ -18,8 +18,8 @@ DbConfig = DbConfigCls()
 
 
 class RedisConfigCls(BaseSettings):
-    redis_host: Annotated[str, Field(serialization_alias='REDIS_HOST')]
-    redis_port: Annotated[int, Field(serialization_alias='REDIS_PORT')]
+    redis_host: Annotated[str, Field(validation_alias='REDIS_HOST')]
+    redis_port: Annotated[int, Field(validation_alias='REDIS_PORT')]
 
 RedisConfig = RedisConfigCls()
 
@@ -28,13 +28,13 @@ def generate_redis_connection_url():
 
 
 class CeleryConfigCls(BaseSettings):
-    author_email: Annotated[str, Field(serialization_alias='AUTHOR_EMAIL')]
+    author_email: Annotated[str, Field(validation_alias='AUTHOR_EMAIL')]
 
 CeleryConfig = CeleryConfigCls()
 
 
 class SMTPConfigCls(BaseSettings):
-    host: Annotated[str, Field(serialization_alias="SMTP_HOST")]
-    port: Annotated[str, Field(serialization_alias="SMTP_PORT")]
+    host: Annotated[str, Field(validation_alias="SMTP_HOST")]
+    port: Annotated[str, Field(validation_alias="SMTP_PORT")]
 
 CMTPConfig = SMTPConfigCls()

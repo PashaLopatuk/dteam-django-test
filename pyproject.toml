@@ -18,6 +18,13 @@ dependencies = [
     "django-celery-results (>=2.5.1,<3.0.0)",
 ]
 
+[tool.poetry]
+name = "django-dteam-test-task"
+version = "0.1.1"
+description = ""
+authors = ["Pavlo Lopatiuk <pashalopatuk@gmail.com>"]
+readme = "README.md"
+
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

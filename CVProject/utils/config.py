@@ -36,5 +36,7 @@ CeleryConfig = CeleryConfigCls()
 class SMTPConfigCls(BaseSettings):
     host: Annotated[str, Field(validation_alias="SMTP_HOST")]
     port: Annotated[str, Field(validation_alias="SMTP_PORT")]
+    password: Annotated[str, Field(validation_alias="SMTP_HOST_PASSWORD")]
+    user: Annotated[str, Field(validation_alias="SMTP_HOST_USER")]
 
 CMTPConfig = SMTPConfigCls()

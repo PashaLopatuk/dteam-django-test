@@ -147,6 +147,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = CMTPConfig.host
 EMAIL_PORT = CMTPConfig.port
 EMAIL_USE_TLS = False
+SMTP_HOST_USER = CMTPConfig.user
+SMTP_HOST_PASSWORD = CMTPConfig.password
+
 
 CELERY_BROKER_URL = generate_redis_connection_url()
 CELERY_ACCEPT_CONTENT = ['json']

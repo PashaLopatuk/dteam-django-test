@@ -29,7 +29,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
-    "https://dteam-django-test.onrender.com", "64.226.73.45"
+    "https://dteam-django-test.onrender.com", "https://64.226.73.45"
 ]
 
 # Application definition

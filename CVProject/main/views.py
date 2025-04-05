@@ -74,7 +74,6 @@ class RequestLogListView(View):
     
     async def get(self, request: HttpRequest):
         logs = await self._logs_repo.get_request_list(page=1, per_page=10)
-        print(logs)
         return render(
             request=request,
             template_name='logs_list.html',
@@ -92,20 +91,19 @@ class SettingsPageView(View):
 class SendPdfToEmailView(View):
     def __init__(self):
         self._cv_repo = CvRepository()
-        self.info_pdf_view = CVInfoPdfView()
+        self._pdf_resolver = DjangoPdfResolver()
     
     async def post(self, request: HttpRequest):
         request_body = json.loads(request.body.decode('utf-8'))
         
         email = request_body.get('email')
-        print(f'{request_body}')
         
         cv_id = int(request_body.get('cv_id'))
         cv_data = await self._cv_repo.get_cv_by_id(id=cv_id)
-        pdf_file = await self.info_pdf_view.render_pdf_cv(cv_data=cv_data)
-        print(f'{email=}')
-        print(123)
-        file_id = create_temp_bin_file(file_io=pdf_file)
-        
-        send_pdf_to_email.delay(email=email, pdf_file_id=file_id)
+        pdf_file_id = self._pdf_resolver.create_temp_pdf_file(
+            template_path="cv_info_pdf.html",
+            template_context={"cv_data": cv_data},
+        )
+        print(f'{pdf_file_id=}')
+        send_pdf_to_email.delay(email=email, pdf_file_id=pdf_file_id)
         return JsonResponse({"message": "Email sent!"})

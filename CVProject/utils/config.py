@@ -23,6 +23,9 @@ class RedisConfigCls(BaseSettings):
 
 RedisConfig = RedisConfigCls()
 
+def generate_redis_connection_url():
+    return f'redis://{RedisConfig.redis_host}:{RedisConfig.redis_port}'
+
 
 class CeleryConfigCls(BaseSettings):
     author_email: Annotated[str, Field(serialization_alias='AUTHOR_EMAIL')]

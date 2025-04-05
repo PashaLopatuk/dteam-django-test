@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-^qg-i#)_!75&+r26#pvuzqb(uuzpfth6#3+z1lvq_q0##nxh%d
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "dteam-django-test.onrender.com"
+    "*"
 ]
 CSRF_TRUSTED_ORIGINS = [
     "https://dteam-django-test.onrender.com"
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
+    # "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",

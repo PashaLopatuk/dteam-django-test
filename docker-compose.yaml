@@ -38,17 +38,17 @@ services:
     networks:
       - local-network
 
-  start-web-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: poetry run python CVProject/manage.py runserver 0.0.0.0:${DJANGO_APP_PORT}
-    depends_on:
-      - build_cv_app
-    volumes:
-      - shared-volume:/app
-    networks:
-      - local-network
+  # start-web-app:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   command: poetry run python CVProject/manage.py runserver 0.0.0.0:${DJANGO_APP_PORT}
+  #   depends_on:
+  #     - build_cv_app
+  #   volumes:
+  #     - shared-volume:/app
+  #   networks:
+  #     - local-network
 
   celery-app:
     build: .
